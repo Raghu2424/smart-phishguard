@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPhishGuard - AI Phishing Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SmartPhishGuard</span>
+            </div>
+            <div class="header-right">
+                <span class="status live"><i class="fas fa-circle"></i> LIVE</span>
+                <div class="user-menu">
+                    <i class="fas fa-user"></i>
+                    <span>Admin</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card safe">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-info">
+                    <h3 id="safe-count">1,247</h3>
+                    <p>Safe Emails</p>
+                </div>
+            </div>
+            <div class="stat-card phishing">
+                <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="stat-info">
+                    <h3 id="phish-count">23</h3>
+                    <p>Phishing Detected</p>
+                </div>
+            </div>
+            <div class="stat-card accuracy">
+                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="stat-info">
+                    <h3 id="accuracy">99.5%</h3>
+                    <p>Detection Accuracy</p>
+                </div>
+            </div>
+            <div class="stat-card realtime">
+                <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                <div class="stat-info">
+                    <h3 id="scan-speed">0.2s</h3>
+                    <p>Avg Scan Time</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phishing Scanner -->
+        <div class="scanner-section">
+            <div class="container">
+                <h2><i class="fas fa-search"></i> Real-Time Phishing Scanner</h2>
+                <div class="scanner-card">
+                    <div class="input-group">
+                        <input type="url" id="urlInput" placeholder="Enter URL or Email to scan..." />
+                        <button id="scanBtn" class="scan-btn">
+                            <span class="btn-text">SCAN NOW</span>
+                            <div class="spinner" id="scanSpinner"></div>
+                        </button>
+                    </div>
+                    <div id="scanResult" class="result-hidden"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detection Details -->
+        <div class="container">
+            <div class="results-grid">
+                <div class="detection-card">
+                    <h3>🧠 AI Detection Engine</h3>
+                    <div class="detection-metrics">
+                        <div class="metric">
+                            <span>URL Entropy</span>
+                            <span id="entropyScore">94%</span>
+                        </div>
+                        <div class="metric">
+                            <span>Sender Reputation</span>
+                            <span id="senderScore">87%</span>
+                        </div>
+                        <div class="metric">
+                            <span>JS Behavior</span>
+                            <span id="jsScore">91%</span>
+                        </div>
+                        <div class="metric">
+                            <span>Visual Similarity</span>
+                            <span id="visualScore">96%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-scans">
+                    <h3>Recent Scans</h3>
+                    <div id="recentList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Detailed Results -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
